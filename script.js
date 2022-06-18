@@ -6,6 +6,9 @@
 // Begin with a function called computer play
 // the computer picks between rock paper and scissors and returns the value that they pick
 
+var gameStateMsg = " "
+const gameInfoElement = document.getElementById("gameState")
+
 function computerPlay() {
     let random = Math.floor(Math.random() * 3);
     
@@ -20,28 +23,33 @@ function computerPlay() {
 
 function playRound(computerSelection, playerSelection) {
     playerSelection = playerSelection.toLowerCase();
+
     const winMessage = `You win! ${playerSelection} beats ${computerSelection}`;
     const loseMessage = `You lose ${computerSelection} beats ${playerSelection}`;
 
+    // clean up the if statement for the win, lose, invalid
     if (playerSelection == computerSelection) {
-        return `You both played ${playerSelection} this game is a tie.`
-    } else if (playerSelection == "rock" && computerSelection == "scissors") {
-        return winMessage;
-    } else if (playerSelection == "paper" && computerSelection == "rock" ) {
-        return winMessage;
-    } else if (playerSelection == "scissors" && computerSelection == "paper") {
-        return winMessage;
-    } else if (computerSelection == "rock" && playerSelection == "scissors") {
-        return loseMessage;
-    } else if (computerSelection == "paper" && playerSelection == "rock") {
-        return loseMessage;
-    } else if (computerSelection == "scissors" && playerSelection == "paper") {
-        return loseMessage;
+       return gameStateMsg = `You both played ${playerSelection} this game is a tie.`;
+    } else if ((playerSelection == "rock" && computerSelection == "scissors") || (playerSelection == "paper" && computerSelection == "rock" ) || (playerSelection == "scissors" && computerSelection == "paper")) {
+       return gameStateMsg = winMessage;
+    } else if ((computerSelection == "rock" && playerSelection == "scissors") || (computerSelection == "paper" && playerSelection == "rock") || (computerSelection == "scissors" && playerSelection == "paper")) {
+       return gameStateMsg = loseMessage
     } else {
-        return `${playerSelection} is not a valid input.`
+       return gameStateMsg = `${playerSelection} is not a valid input`;
     }
 }
 
-const playerSelection = "RocK";
+// the game function that will track our games
+function game() {
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt("Chose your weapon! Rock, Paper or Scissors?")
+        let computerSelection = computerPlay();
+        console.log(playRound(computerSelection, playerSelection));
+    }
+}
+
+game();
+
+/* const playerSelection = "RocK";
 const computerSelection = computerPlay();
-console.log(playRound(computerSelection, playerSelection));
+console.log(playRound(computerSelection, playerSelection)); */
