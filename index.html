@@ -4,12 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/96d6bd8d5b.js" crossorigin="anonymous"></script>
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <h1>Rock Paper Scisors</h1>
-    <p> This game is played in the console. Please open developer tools to view your score</p>
+    <div class="container">
+        <h1>Rock, Paper, Scisors</h1>
+        <div id="scoreContainer">
+            <h3>Score</h3>
+            <div id="scores">
+                <div id="computer">
+                    <h4 id="computerScore">0</h4>
+                    <h4>Computer</h4>
+                </div>
+                <div id="player">
+                    <h4 id="playerScore">0</h4>
+                    <h4>Player</h4>
+                </div>
+            </div>
+        </div>
+        <div class="btn-container">
+            <button id="rock">
+                <i class="fa-regular fa-hand-back-fist fa-5x icon"></i>
+            </button>
+            <button id="paper">
+                <i class="fa-regular fa-hand fa-5x icon"></i>
+            </button>
+            <button id="scissors">
+                <i class="fa-regular fa-hand-scissors fa-5x icon"></i>
+            </button>
+        </div>
+        <h3 id="roundInfo"> Chose your weapon</h3>
+    </div>
+    <div id="modal" class="modal-hidden">
+        <h1 id="gameInfo">You did a thing! Do you want to play again?</h1>
+        <button id="playAgain">Play Again!</button>
+    </div>
+    
     
     <script src="script.js"></script>
+    
 </body>
 </html>
